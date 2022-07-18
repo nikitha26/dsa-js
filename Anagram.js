@@ -69,4 +69,40 @@ function uniqueValue(arr1) {
 function array(arr) {
    console.log(arr[arr.length-1])
 }
-array([9,8,7,5])
+//array([9,8,7,5])
+
+function sameFrequency(num1, num2){
+   let fC1 = num1.toString();
+   let fC2 = num2.toString();
+
+   let fCounter1 = {};
+   let fCounter2 = {};
+   for(let i = 0;i < fC1.length;i++){
+      fCounter1[fC1[i]] = (fC1[i] || 0) + 1;
+   }
+   for(let j = 0;j < fC1.length;j++){
+      fCounter2[fC2[j]] = (fC2[j] || 0) + 1;
+   }
+   for (const key in fCounter2) {
+      if (fCounter1[key] !== fCounter2[key]) {
+         return false;
+      }
+   }
+   return true;
+ }
+
+ //console.log(sameFrequency(678,876))
+
+//  let object = {
+//    fname:'john',
+//    lname:'roy',
+//  }
+// let obj2 = ['smith','rock']
+
+//  for (const iterator of obj2) {
+//    console.log(iterator)
+//  }
+
+//  for (const key in object) {
+//    console.log(key)
+//  }
