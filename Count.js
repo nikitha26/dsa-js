@@ -30,7 +30,7 @@ function Code(x) {
 }
 //Code('12')
 
-
+//Is First array Squre root of Second array
 function same(arr1,arr2) {
     for(var i = 0;i < arr1.length;i++){
       var correctIndex = arr2.indexOf(arr1[i] ** 2);
@@ -44,7 +44,7 @@ function same(arr1,arr2) {
     return true;
 }
 //It is taking so many loops
-//console.log(same([1,2,3,4],[1,9,16]))   
+console.log(same([1,2,3,4],[1,4,9,16]))   
 
 function same2(arr1,arr2) {
    if(!arr1 || !arr2){
@@ -73,5 +73,5 @@ function same2(arr1,arr2) {
    }
   return true;
 }
-console.log(same2([2,3,6,2],[4,9,36,25]))
+//console.log(same2([2,3,6,2],[4,9,36,25]))
 

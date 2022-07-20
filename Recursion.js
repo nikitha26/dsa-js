@@ -34,3 +34,33 @@ function factorialByRecursive(num) {
     return num * factorialByRecursive(num-1);
 }
 console.log(factorialByRecursive(4))
+
+
+
+function abcd(num) {
+    if(num === 1){
+        return 1;
+    }
+    return num * abcd(num - 1);
+}
+console.log(abcd(5))
+
+
+//Collect Odd Values in an array with helper method
+
+function findOddValue(arr) {
+    let result = [];
+    function helper(hlperIn) {
+        if(hlperIn.length === 0){
+            return;
+        }
+        if(hlperIn[0] % 2 !== 0){
+            result.push(hlperIn[0]);
+        }
+        helper(hlperIn.slice(1))  //Removing first element(which already check)
+    }
+    
+    helper(arr)
+    return result;
+}
+console.log(findOddValue([1,2,3,4,5,6]))
