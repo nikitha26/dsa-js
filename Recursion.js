@@ -119,4 +119,82 @@ function reverse(str) {
                     // '' + e;
 
 }
-console.log(reverse('awesome'))
+//console.log(reverse('awesome'))
+
+function isPalindrome(str) {
+    let x = str.length;
+    let mid = Math.floor(x/2);
+    for(let i = 0;i < mid; i++){
+      if(str[i] != str[x-1-i]){
+        return false;
+      }
+    }
+    return true;
+}
+//console.log(isPalindrome('abcd'))
+
+
+function isPalindrome(str) {
+    if(str.length === 1){
+        return true;
+    }
+    if(str.length === 2){
+      return str[0] === str[1];
+    }
+    if(str[0] === str.slice(-1)){
+      return isPalindrome(str.slice(1,-1));
+    }
+    return false;
+}
+//console.log(isPalindrome('madam'));
+
+
+
+function palin(str) {
+    if(str.length === 1){
+        return true;
+    }
+    if(str.length === 2){
+       return str[0] === str[1];
+    }
+    if(str[0] === str.slice(-1)){
+       return palin(str.slice(1,-1));
+    }
+    return false;
+}
+//console.log(palin('madam'));
+
+function flaten(arr) {
+    var newArr = [];
+    if(arr.length === 0){
+       return;
+    }
+    for(let i = 0; i < arr.length; i++){
+        if(Array.isArray(arr[i])){
+            //console.log(arr[i])
+            // for(let j = 0; j < arr[i].length; j++){
+            //     newArr.push(arr[i][j]);
+            // }
+            // newArr.concat(arr[i]);
+            newArr = newArr.concat(flaten(arr[i]));
+        }else{
+            newArr.push(arr[i]);
+        }
+      
+    }
+    console.log(newArr)
+}
+//flaten([1, 2, 3, [4, 5]]);
+
+function capitalizeFirst(arr) {
+    var res = [];
+    if(arr.length === 0){
+        return;
+    }
+    for(let i = 0; i < arr.length; i++){
+        var x = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+        res.push(x)
+    }
+    console.log(res)
+}
+capitalizeFirst(['car','taco','banana']);
