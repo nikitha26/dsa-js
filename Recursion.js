@@ -196,5 +196,92 @@ function capitalizeFirst(arr) {
         res.push(x)
     }
     console.log(res)
+   
 }
-capitalizeFirst(['car','taco','banana']);
+//capitalizeFirst(['car','taco','banana']);
+//var sum;
+function nestedEvenSum (obj,sum=0) {
+    
+    for (var key in obj) {
+        if(typeof(obj[key]) === 'object'){
+           sum += nestedEvenSum(obj[key]);
+        }else if(typeof(obj[key]) === 'number' && obj[key] % 2 === 0){
+           sum += obj[key];
+        }
+    }
+    return sum;
+}
+  
+  
+  var obj1 = {
+    outer: 2,
+    obj: {
+      inner: 2,
+      otherObj: {
+        superInner: 3,
+        notANumber: true,
+        alsoNotANumber: "yup",
+        otherObj: {
+            superInner: 6,
+        }
+      }
+    }
+  }
+
+  //console.log(nestedEvenSum(obj1));
+
+function strigify(obj) {
+    var newObj = {}
+    for (const key in obj) {
+        if(typeof(obj[key]) === 'number'){
+            newObj[key] = obj[key].toString();
+        }else if(typeof(obj[key]) === 'object' && !Array.isArray(obj[key])){
+            newObj[key] = strigify(obj[key]);
+        }else{
+            newObj[key] = obj[key];
+        }
+    }
+    //console.log(newObj)
+}
+//strigify(obj1)
+
+function capitalized(arr) {
+    var res = [];
+    if(arr.length === 0){
+       return;
+    }
+    for(let i = 0; i < arr.length; i++){
+       res.push(arr[i].toUpperCase());
+    }
+    return res;
+}
+//console.log(capitalized(['i', 'am', 'learning', 'recursion']))
+
+var res = [];
+function collectString(obj) {
+   
+    for (const key in obj) {
+        if(typeof(obj[key]) === 'string'){
+           res.push(obj[key])
+        }else if(typeof(obj[key]) === 'object'){
+           collectString(obj[key]);
+        }
+    }
+    console.log(res)
+}
+const obj = {
+    stuff: "foo",
+    data: {
+        val: {
+            thing: {
+                info: "bar",
+                moreInfo: {
+                    evenMoreInfo: {
+                        weMadeIt: "baz"
+                    }
+                }
+            }
+        }
+    }
+}
+collectString(obj)
